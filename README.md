@@ -18,9 +18,9 @@ brew install leb4r/tap/semtag
 ## Container
 
 ```bash
-# pull the image from DockerHub
-docker pull leb4r/semtag
+# pull the image from Docker Hub
+docker pull docker.io/leb4r/semtag
 
-# run on a git repository
-docker run -it -v $PWD:/src -w /src --rm leb4r/semtag final
+# execute on the current working directory
+docker run -it -v $PWD:/src:z -w /src --rm docker.io/leb4r/semtag final
 ```
