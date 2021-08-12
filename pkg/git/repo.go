@@ -53,7 +53,7 @@ func New(dir string) *Repo {
 
 	return &Repo{
 		repo:           repository,
-		Tags:           getTagsAsVersion(repository),
+		Tags:           tags,
 		Status:         getStatus(repository),
 		FirstVersion:   firstVersion,
 		LastVersion:    lastVersion,
