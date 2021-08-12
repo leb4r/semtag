@@ -9,7 +9,7 @@ Tag your repository according to Semantic Versioning.
 Using Homebrew
 
 ```bash
-brew tap leb4r/tap/semtag
+brew tap leb4r/tap
 brew install leb4r/tap/semtag
 ```
 
