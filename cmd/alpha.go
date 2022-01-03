@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"github.com/leb4r/semtag/pkg/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -19,8 +18,15 @@ func init() {
 }
 
 func alphaAction(cmd *cobra.Command, args []string) error {
+	// perform alpha bump
 	v, err := bumpVersion(repository.LastVersion, Scope, "alpha", Metadata)
-	utils.CheckIfError(err)
-	tagAction(repository, v.String(), Output, Force)
+	if err != nil {
+		return err
+	}
+
+	// create tag
+	if err := tagAction(repository, v.String(), Output, Force); err != nil {
+		return err
+	}
 	return nil
 }
