@@ -14,7 +14,7 @@ var (
 	repository *repo.Repo
 )
 
-func tagAction(repository *repo.Repo, tag string, dryrun bool, force bool) {
+func tagAction(repository *repo.Repo, tag string, dryrun bool, force bool) error {
 	// get status of worktree
 	// exit if --force is not set and worktree contains changes
 	if status := repository.Status; len(status) > 0 && !force {
@@ -30,8 +30,12 @@ func tagAction(repository *repo.Repo, tag string, dryrun bool, force bool) {
 	if dryrun {
 		fmt.Printf("To be tagged: %s", tag)
 	} else {
-		repository.CreateTag(tag)
+		if err := repository.CreateTag(tag); err != nil {
+			return err
+		}
 	}
+
+	return nil
 }
 
 func bumpVersion(v *version.Version, scope string, preRelease string, metadata string) (*version.Version, error) {
