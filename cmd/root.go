@@ -56,9 +56,15 @@ func init() {
 		choose patch).`)
 
 	// bind flags to config
-	viper.BindPFlag("version", rootCmd.PersistentFlags().Lookup("version"))
-	viper.BindPFlag("metadata", rootCmd.PersistentFlags().Lookup("metadata"))
-	viper.BindPFlag("scope", rootCmd.PersistentFlags().Lookup("scope"))
+	if err := viper.BindPFlag("version", rootCmd.PersistentFlags().Lookup("version")); err != nil {
+		utils.ThrowError(err)
+	}
+	if err := viper.BindPFlag("metadata", rootCmd.PersistentFlags().Lookup("metadata")); err != nil {
+		utils.ThrowError(err)
+	}
+	if err := viper.BindPFlag("scope", rootCmd.PersistentFlags().Lookup("scope")); err != nil {
+		utils.ThrowError(err)
+	}
 }
 
 // initConfig reads in config file

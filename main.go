@@ -1,7 +1,12 @@
 package main
 
-import "github.com/leb4r/semtag/cmd"
+import (
+	"github.com/leb4r/semtag/cmd"
+	"github.com/leb4r/semtag/pkg/utils"
+)
 
 func main() {
-	cmd.Execute()
+	if err := cmd.Execute(); err != nil {
+		utils.ThrowError(err)
+	}
 }
