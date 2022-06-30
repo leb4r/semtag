@@ -20,7 +20,7 @@ jobs:
 
       - name: Generate metadata
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           images: ${{ secrets.DOCKER_HUB_USERNAME }}/semtag,ghcr.io/leb4r/semtag
 
