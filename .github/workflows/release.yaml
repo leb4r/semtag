@@ -30,7 +30,7 @@ jobs:
           go-version: ${{ steps.go-version.outputs.content }}
 
       - name: Release static binaries
-        uses: goreleaser/goreleaser-action@v2
+        uses: goreleaser/goreleaser-action@v3
         with:
           version: latest
           args: release
