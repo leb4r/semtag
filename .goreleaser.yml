@@ -5,6 +5,7 @@ env:
 builds:
   - mod_timestamp: "{{ .CommitTimestamp }}"
     goos:
+      - darwin
       - freebsd
       - openbsd
       - linux

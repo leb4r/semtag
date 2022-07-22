@@ -1,4 +1,4 @@
-name: auto-release
+name: release-drafter
 
 on:
   push:
@@ -20,6 +20,6 @@ jobs:
         with:
           publish: ${{ !contains(steps.get-merged-pull-request.outputs.labels, 'no-release') }}
           prerelease: false
-          config-name: auto-release.yaml
+          config-name: release-drafter.yaml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

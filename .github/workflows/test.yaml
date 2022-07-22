@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-18.04
+          - ubuntu-20.04
+          - ubuntu-22.04
+          - windows-2019
+          - windows-2022
+          - macos-11
+          - macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      - name: Set Up Go
+        uses: actions/setup-go@v3
+
+      - name: Go mod download
+        run: go mod download -x
+
+      - name: Go mod verify
+        run: go mod verify
+
+      - name: Go test cmd
+        run: go test -v github.com/leb4r/semtag/cmd
