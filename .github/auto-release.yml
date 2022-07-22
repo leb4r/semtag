@@ -13,6 +13,7 @@ version-resolver:
   patch:
     labels:
       - "auto-update"
+      - "dependencies"
       - "patch"
       - "fix"
       - "bugfix"
@@ -34,6 +35,7 @@ categories:
   - title: "🤖 Automatic Updates"
     labels:
       - "auto-update"
+      - "dependencies"
 
 change-template: |
   <details>
@@ -45,11 +47,3 @@ change-template: |
 
 template: |
   $CHANGES
-
-replacers:
-  # Remove irrelevant information from Renovate bot
-  - search: '/(?<=---\s+)+^#.*(Renovate configuration|Configuration)(?:.|\n)*?This PR has been generated .*/gm'
-    replace: ""
-  # Remove Renovate bot banner image
-  - search: '/\[!\[[^\]]*Renovate\][^\]]*\](\([^)]*\))?\s*\n+/gm'
-    replace: ""
