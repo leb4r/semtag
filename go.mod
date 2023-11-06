@@ -6,7 +6,7 @@ require (
 	github.com/coreos/go-semver v0.3.0
 	github.com/go-git/go-git/v5 v5.8.1
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/spf13/cobra v1.7.0
+	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.13.0
 )
 
